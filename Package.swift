@@ -21,9 +21,12 @@ let package = Package(
     ],
     targets: [
         .target(name: "CocoaMQTT",
-                dependencies: [ "CocoaAsyncSocket" ],
                 path: "Source",
                 exclude: ["CocoaMQTTWebSocket.swift"],
+                swiftSettings: [ .define("IS_SWIFT_PACKAGE")]),
+        .target(name: "CocoaMQTTCocoaAsyncSocket",
+                dependencies: [ "CocoaMQTT", "CocoaAsyncSocket" ],
+                path: "Source",
                 swiftSettings: [ .define("IS_SWIFT_PACKAGE")]),
         .target(name: "CocoaMQTTNetwork",
                 dependencies: [ "CocoaMQTT", "Network" ],
@@ -35,7 +38,7 @@ let package = Package(
                 sources: ["CocoaMQTTWebSocket.swift"],
                 swiftSettings: [ .define("IS_SWIFT_PACKAGE")]),
         .testTarget(name: "CocoaMQTTTests",
-                    dependencies: [ "CocoaMQTT", "CocoaMQTTWebSocket" ],
+                    dependencies: [ "CocoaMQTTCocoaAsyncSocket", "CocoaMQTTWebSocket" ],
                     path: "CocoaMQTTTests",
                     swiftSettings: [ .define("IS_SWIFT_PACKAGE")])
     ]
