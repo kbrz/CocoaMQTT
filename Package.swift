@@ -24,7 +24,7 @@ let package = Package(
                 path: "Source",
                 exclude: ["CocoaMQTTWebSocket.swift"],
                 swiftSettings: [ .define("IS_SWIFT_PACKAGE")]),
-        .target(name: "CocoaMQTT",
+        .target(name: "CocoaMQTTNetwork",
                 dependencies: [ "CocoaMQTT", "Network" ],
                 path: "Source",
                 swiftSettings: [ .define("IS_SWIFT_PACKAGE")]),
