@@ -12,6 +12,7 @@ let package = Package(
     ],
     products: [
         .library(name: "CocoaMQTT", targets: [ "CocoaMQTT" ]),
+        .library(name: "CocoaMQTTNetwork", targets: [ "CocoaMQTTNetwork" ]),
         .library(name: "CocoaMQTTWebSocket", targets: [ "CocoaMQTTWebSocket" ])
     ],
     dependencies: [
